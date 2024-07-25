@@ -1,6 +1,13 @@
 import streamlit as st
+import json
 import firebase_admin
 from firebase_admin import credentials, firestore
+
+# 비밀값 읽기
+json_text = st.secrets["textkey"]["value"]
+
+# JSON 문자열 파싱
+key_dict = json.loads(json_text)
 
 # Firebase Admin SDK 초기화
 if not firebase_admin._apps:
